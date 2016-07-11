@@ -1,0 +1,60 @@
+﻿<Window x:Class="Puzzle2048.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="Field" TargetType="Label">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="FontFamily" Value="CourierNew"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="4" Rows="4" Grid.Row="2">
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label11Text, FallbackValue='11'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label12Text, FallbackValue='12'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label13Text, FallbackValue='13'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label14Text, FallbackValue='14'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label21Text, FallbackValue='21'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label22Text, FallbackValue='22'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label23Text, FallbackValue='23'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label24Text, FallbackValue='24'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label31Text, FallbackValue='31'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label32Text, FallbackValue='32'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label33Text, FallbackValue='33'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label34Text, FallbackValue='34'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label41Text, FallbackValue='41'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label42Text, FallbackValue='42'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label43Text, FallbackValue='43'}" />
+            <Label Style="{StaticResource Field}" Content="{Binding Path=Label44Text, FallbackValue='44'}" />
+        </UniformGrid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="Gray">
+            <Label>Score</Label>
+            <Label Content="{Binding Path=Score, FallbackValue='0'}" Width="150"/>
+            <Button Width="50" Click="ButtonBase_OnClickUp">Up</Button>
+            <Button Width="50" Click="ButtonBase_OnClickDown">Down</Button>
+            <Button Width="50" Click="ButtonBase_OnClickLeft">Left</Button>
+            <Button Width="50" Click="ButtonBase_OnClickRight">Right</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Gray">
+            <Label VerticalContentAlignment="Center">Prob4(%)</Label>
+            <TextBlock VerticalAlignment="Center" Width="100" Text="{Binding Path=Prob4,FallbackValue='10'}" />
+            <Button Width="50" Click="ButtonBase_OnClickStart">Start</Button>
+            <Button Width="50" Click="ButtonBase_OnClickStop">Stop</Button>
+            <Button Width="50" Click="ButtonBase_OnClickReset">Reset</Button>
+        </StackPanel>
+    </Grid>
+</Window>
